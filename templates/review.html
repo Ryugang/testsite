@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>오답 확인</title>
+</head>
+<body>
+    <h1>오답 확인</h1>
+    {% if wrong_answers %}
+        <table>
+            <tr>
+                <th>테마</th>
+                <th>단어</th>
+                <th>오답 횟수</th>
+            </tr>
+            {% for (theme, word), count in wrong_answers.items() %}
+                <tr>
+                    <td>{{ theme }}</td>
+                    <td>{{ word }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>오답이 없습니다.</p>
+    {% endif %}
+</body>
+</html>

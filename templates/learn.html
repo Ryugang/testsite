@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>단어 학습</title>
+</head>
+<body>
+    <h1>단어 학습</h1>
+    <form method="POST">
+        <select name="theme">
+            <option value="" selected disabled>테마 선택</option>
+            <option value="음식">음식</option>
+            <option value="가구">가구</option>
+            <option value="생활">생활</option>
+        </select>
+        <button type="submit">선택</button>
+    </form>
+    {% if theme %}
+        <h2>{{ theme }} 테마</h2>
+        <ul>
+            {% for word in words %}
+                <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+

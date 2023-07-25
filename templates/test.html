@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>단어 시험</title>
+</head>
+<body>
+    <h1>단어 시험</h1>
+    <form method="POST">
+        <select name="theme" onchange="this.form.submit()">
+            <option value="" selected disabled>테마 선택</option>
+            <option value="음식">음식</option>
+            <option value="가구">가구</option>
+            <option value="생활">생활</option>
+        </select>
+        <button type="submit">선택</button>
+    </form>
+    {% if theme %}
+        <h2>{{ theme }} 테마</h2>
+        {% if not wrong %}
+            <form method="POST">
+                <h3>{{ words[word_index].split('(')[0] }}</h3>
+                <input type="hidden" name="theme" value="{{ theme }}">
+                <input type="hidden" name="word_index" value="{{ word_index }}">
+                <input type="text" name="answer">
+                <button type="submit">확인</button>
+            </form>
+        {% else %}
+            <p>내일 다시 시험보아요!</p>
+            <form method="POST">
+                <h3>{{ words[word_index].split('(')[0] }}</h3>
+                <input type="hidden" name="theme" value="{{ theme }}">
+                <input type="hidden" name="word_index" value="{{ word_index }}">
+                <input type="text" name="answer">
+                <button type="submit">확인</button>
+            </form>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
+
+
+
+
+
